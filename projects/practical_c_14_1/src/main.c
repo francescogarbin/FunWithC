@@ -33,18 +33,16 @@ int main(int argc, char *argv[]) {
   char *in_path = parse_args(argc, argv);
   if(NULL != in_path) {
     FILE *in_file = fopen(in_path, "r");
-    if(NULL == in_file) {
+    if(in_file) {
+      while(EOF != (ch = fgetc (in_file))) {
+        ++count;
+      }
+      fclose(in_file);
+    }
+    else {
       printf("Cannot open %s\n", in_path);
       exit(8);
     }
-    while(FOREVER) {
-      ch = fgetc(in_file);
-      if(EOF == ch){
-        break;
-      }
-      ++count;
-    }
-    fclose(in_file);
     printf("File %s is %d characters long.\n", FILE_NAME, count);
   }
   return(0);
