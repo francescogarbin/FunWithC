@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define FOREVER 1
-
 void print_help();
 char* parse_args(int argc, char *argv[]);
 
