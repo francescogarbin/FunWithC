@@ -7,8 +7,6 @@
 void print_help();
 char* parse_args(int argc, char *argv[]);
 
-const char FILE_NAME[] = "input.txt";
-
 void print_help() {
     printf("This program counts the number of characters in the file passed as argument.\n");
     printf("usage: countchars -f infile\n");
@@ -43,7 +41,7 @@ int main(int argc, char *argv[]) {
       printf("Cannot open %s\n", in_path);
       exit(8);
     }
-    printf("File %s is %d characters long.\n", FILE_NAME, count);
+    printf("File %s is %d characters long.\n", in_path, count);
   }
   return(0);
 }
